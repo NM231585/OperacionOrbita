@@ -60,3 +60,7 @@ La base de datos incluye los siguientes usuarios configurados con distintos nive
 ## 📐 Diagrama de Clases UML
 
 ![Diagrama UML de Operación Órbita](Orbita-UML2.drawio.png)
+
+## Integrantes
+*   **Noyola Moz, Michael Douglas** Principal
+
