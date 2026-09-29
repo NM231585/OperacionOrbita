@@ -24,6 +24,7 @@ namespace OperaciónOrbita
             lblBienvenida.Text = $"Operador: {FrmLogin.UsuarioSesionActual} | Rol: {FrmLogin.RolSesionActual}";
 
             CargarMisiones();
+            AplicarPermisosDeInterfaz();
         }
 
         private void CargarMisiones()
@@ -32,26 +33,45 @@ namespace OperaciónOrbita
             {
                 using (OrbitaDBEntities db = new OrbitaDBEntities())
                 {
-                    var listaMisiones = (from m in db.Misiones
-                                         join u in db.Usuarios on m.ResponsableId equals u.Id
-                                         select new
-                                         {
-                                             Código = m.Codigo,
-                                             Misión = m.Nombre,
-                                             Prioridad = m.Prioridad,
-                                             Inicio = m.FechaInicio,
-                                             Estado = m.Estado,
-                                             Responsable = u.NombreUsuario
-                                         }).ToList();
+                    var consultaMisiones = from m in db.Misiones
+                                           join u in db.Usuarios on m.ResponsableId equals u.Id
+                                           select new
+                                           {
+                                               Código = m.Codigo,
+                                               Misión = m.Nombre,
+                                               Prioridad = m.Prioridad,
+                                               Inicio = m.FechaInicio,
+                                               Estado = m.Estado,
+                                               Responsable = u.NombreUsuario
+                                           };
 
-                    dgvMisiones.DataSource = listaMisiones;
+                    if (FrmLogin.RolSesionActual == "Coordinador")
+                    {
+                        // Solo podrá ver las misiones donde su usuario sea el responsable
+                        consultaMisiones = consultaMisiones.Where(q => q.Responsable == FrmLogin.UsuarioSesionActual);
+                    }
+                    // Si es Administrador o Auditor, el if se ignora y ven la lista completa
+                    dgvMisiones.DataSource = consultaMisiones.ToList();
 
                     dgvMisiones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ocurrió un error al cargar los datos: {ex.Message}", "Error de Lectura", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al cargar datos: {ex.Message}");
+            }
+        }
+
+        private void AplicarPermisosDeInterfaz()
+        {
+            if (FrmLogin.RolSesionActual == "Auditor")
+            {
+                btnIniciarMision.Enabled = false;
+
+            }
+            else
+            {
+                btnIniciarMision.Enabled = true;
             }
         }
 
