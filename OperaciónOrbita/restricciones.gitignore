@@ -1,0 +1,21 @@
+# Carpetas de compilación de C#
+[Bb]in/
+[Oo]bj/
+
+# Directorio oculto de configuraciones locales de Visual Studio
+.vs/
+
+# Archivos de preferencias de usuario
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Archivos temporales, logs y cachés
+*.log
+*.cache
+*.tmp
+
+# Archivos de bases de datos locales adjuntas (por si acaso)
+*.mdf
+*.ldf

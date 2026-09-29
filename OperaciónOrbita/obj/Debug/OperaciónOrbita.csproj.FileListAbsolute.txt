@@ -1,0 +1,14 @@
+C:\Users\mycat\OneDrive - Universidad Don Bosco\Documentos\Programs C#\Taller2\OperaciónOrbita\obj\Debug\OperaciónOrbita.csproj.AssemblyReference.cache
+C:\Users\mycat\OneDrive - Universidad Don Bosco\Documentos\Programs C#\Taller2\OperaciónOrbita\obj\Debug\OperaciónOrbita.FrmLogin.resources
+C:\Users\mycat\OneDrive - Universidad Don Bosco\Documentos\Programs C#\Taller2\OperaciónOrbita\obj\Debug\OperaciónOrbita.FrmPanelControl.resources
+C:\Users\mycat\OneDrive - Universidad Don Bosco\Documentos\Programs C#\Taller2\OperaciónOrbita\obj\Debug\OperaciónOrbita.Properties.Resources.resources
+C:\Users\mycat\OneDrive - Universidad Don Bosco\Documentos\Programs C#\Taller2\OperaciónOrbita\obj\Debug\OperaciónOrbita.csproj.GenerateResource.cache
+C:\Users\mycat\OneDrive - Universidad Don Bosco\Documentos\Programs C#\Taller2\OperaciónOrbita\obj\Debug\OperaciónOrbita.csproj.CoreCompileInputs.cache
+C:\Users\mycat\OneDrive - Universidad Don Bosco\Documentos\Programs C#\Taller2\OperaciónOrbita\bin\Debug\OperaciónOrbita.exe.config
+C:\Users\mycat\OneDrive - Universidad Don Bosco\Documentos\Programs C#\Taller2\OperaciónOrbita\bin\Debug\OperaciónOrbita.exe
+C:\Users\mycat\OneDrive - Universidad Don Bosco\Documentos\Programs C#\Taller2\OperaciónOrbita\bin\Debug\OperaciónOrbita.pdb
+C:\Users\mycat\OneDrive - Universidad Don Bosco\Documentos\Programs C#\Taller2\OperaciónOrbita\bin\Debug\EntityFramework.dll
+C:\Users\mycat\OneDrive - Universidad Don Bosco\Documentos\Programs C#\Taller2\OperaciónOrbita\bin\Debug\EntityFramework.xml
+C:\Users\mycat\OneDrive - Universidad Don Bosco\Documentos\Programs C#\Taller2\OperaciónOrbita\obj\Debug\Operaci_.A3E0F18F.Up2Date
+C:\Users\mycat\OneDrive - Universidad Don Bosco\Documentos\Programs C#\Taller2\OperaciónOrbita\obj\Debug\OperaciónOrbita.exe
+C:\Users\mycat\OneDrive - Universidad Don Bosco\Documentos\Programs C#\Taller2\OperaciónOrbita\obj\Debug\OperaciónOrbita.pdb

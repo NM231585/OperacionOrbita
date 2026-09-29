@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OrbitaDBModelStoreContainer" CdmEntityContainer="OrbitaDBEntities">
+    <EntitySetMapping Name="Asignaciones">
+      <EntityTypeMapping TypeName="OrbitaDBModel.Asignaciones">
+        <MappingFragment StoreEntitySet="Asignaciones">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MisionId" ColumnName="MisionId" />
+          <ScalarProperty Name="RecursoId" ColumnName="RecursoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Misiones">
+      <EntityTypeMapping TypeName="OrbitaDBModel.Misiones">
+        <MappingFragment StoreEntitySet="Misiones">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Prioridad" ColumnName="Prioridad" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="ResponsableId" ColumnName="ResponsableId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Recursos">
+      <EntityTypeMapping TypeName="OrbitaDBModel.Recursos">
+        <MappingFragment StoreEntitySet="Recursos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Autonomia" ColumnName="Autonomia" />
+          <ScalarProperty Name="Alcance" ColumnName="Alcance" />
+          <ScalarProperty Name="CostoPorHora" ColumnName="CostoPorHora" />
+          <ScalarProperty Name="CapacidadCarga" ColumnName="CapacidadCarga" />
+          <ScalarProperty Name="CostoPorKilometro" ColumnName="CostoPorKilometro" />
+          <ScalarProperty Name="CantidadSensores" ColumnName="CantidadSensores" />
+          <ScalarProperty Name="ConsumoEnergetico" ColumnName="ConsumoEnergetico" />
+          <ScalarProperty Name="CostoDiario" ColumnName="CostoDiario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="OrbitaDBModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

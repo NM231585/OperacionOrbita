@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OrbitaDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Asignaciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MisionId" Type="int" />
+    <Property Name="RecursoId" Type="int" />
+  </EntityType>
+  <EntityType Name="Misiones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+    <Property Name="Prioridad" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="FechaInicio" Type="date" Nullable="false" />
+    <Property Name="FechaFin" Type="date" Nullable="false" />
+    <Property Name="Estado" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ResponsableId" Type="int" />
+  </EntityType>
+  <EntityType Name="Recursos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Codigo" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Modelo" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Tipo" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="Estado" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Autonomia" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Alcance" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="CostoPorHora" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="CapacidadCarga" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="CostoPorKilometro" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="CantidadSensores" Type="int" />
+    <Property Name="ConsumoEnergetico" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="CostoDiario" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreUsuario" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Rol" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Estado" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Asignacio__Misio__5441852A">
+    <End Role="Misiones" Type="Self.Misiones" Multiplicity="0..1" />
+    <End Role="Asignaciones" Type="Self.Asignaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Misiones">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Asignaciones">
+        <PropertyRef Name="MisionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Asignacio__Recur__5535A963">
+    <End Role="Recursos" Type="Self.Recursos" Multiplicity="0..1" />
+    <End Role="Asignaciones" Type="Self.Asignaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recursos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Asignaciones">
+        <PropertyRef Name="RecursoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Misiones__Respon__4E88ABD4">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Misiones" Type="Self.Misiones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Misiones">
+        <PropertyRef Name="ResponsableId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OrbitaDBModelStoreContainer">
+    <EntitySet Name="Asignaciones" EntityType="Self.Asignaciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Misiones" EntityType="Self.Misiones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recursos" EntityType="Self.Recursos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Asignacio__Misio__5441852A" Association="Self.FK__Asignacio__Misio__5441852A">
+      <End Role="Misiones" EntitySet="Misiones" />
+      <End Role="Asignaciones" EntitySet="Asignaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Asignacio__Recur__5535A963" Association="Self.FK__Asignacio__Recur__5535A963">
+      <End Role="Recursos" EntitySet="Recursos" />
+      <End Role="Asignaciones" EntitySet="Asignaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Misiones__Respon__4E88ABD4" Association="Self.FK__Misiones__Respon__4E88ABD4">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Misiones" EntitySet="Misiones" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

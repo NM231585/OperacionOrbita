@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OrbitaDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Asignaciones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MisionId" Type="Int32" />
+    <Property Name="RecursoId" Type="Int32" />
+    <NavigationProperty Name="Misiones" Relationship="Self.FK__Asignacio__Misio__5441852A" FromRole="Asignaciones" ToRole="Misiones" />
+    <NavigationProperty Name="Recursos" Relationship="Self.FK__Asignacio__Recur__5535A963" FromRole="Asignaciones" ToRole="Recursos" />
+  </EntityType>
+  <EntityType Name="Misiones">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Prioridad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FechaFin" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ResponsableId" Type="Int32" />
+    <NavigationProperty Name="Asignaciones" Relationship="Self.FK__Asignacio__Misio__5441852A" FromRole="Misiones" ToRole="Asignaciones" />
+    <NavigationProperty Name="Usuarios" Relationship="Self.FK__Misiones__Respon__4E88ABD4" FromRole="Misiones" ToRole="Usuarios" />
+  </EntityType>
+  <EntityType Name="Recursos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Codigo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Modelo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Tipo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Autonomia" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="Alcance" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="CostoPorHora" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="CapacidadCarga" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="CostoPorKilometro" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="CantidadSensores" Type="Int32" />
+    <Property Name="ConsumoEnergetico" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="CostoDiario" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="Asignaciones" Relationship="Self.FK__Asignacio__Recur__5535A963" FromRole="Recursos" ToRole="Asignaciones" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NombreUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Rol" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Estado" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Misiones" Relationship="Self.FK__Misiones__Respon__4E88ABD4" FromRole="Usuarios" ToRole="Misiones" />
+  </EntityType>
+  <Association Name="FK__Asignacio__Misio__5441852A">
+    <End Role="Misiones" Type="Self.Misiones" Multiplicity="0..1" />
+    <End Role="Asignaciones" Type="Self.Asignaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Misiones">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Asignaciones">
+        <PropertyRef Name="MisionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Asignacio__Recur__5535A963">
+    <End Role="Recursos" Type="Self.Recursos" Multiplicity="0..1" />
+    <End Role="Asignaciones" Type="Self.Asignaciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Recursos">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Asignaciones">
+        <PropertyRef Name="RecursoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Misiones__Respon__4E88ABD4">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Misiones" Type="Self.Misiones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Misiones">
+        <PropertyRef Name="ResponsableId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="OrbitaDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Asignaciones" EntityType="Self.Asignaciones" />
+    <EntitySet Name="Misiones" EntityType="Self.Misiones" />
+    <EntitySet Name="Recursos" EntityType="Self.Recursos" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+    <AssociationSet Name="FK__Asignacio__Misio__5441852A" Association="Self.FK__Asignacio__Misio__5441852A">
+      <End Role="Misiones" EntitySet="Misiones" />
+      <End Role="Asignaciones" EntitySet="Asignaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Asignacio__Recur__5535A963" Association="Self.FK__Asignacio__Recur__5535A963">
+      <End Role="Recursos" EntitySet="Recursos" />
+      <End Role="Asignaciones" EntitySet="Asignaciones" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Misiones__Respon__4E88ABD4" Association="Self.FK__Misiones__Respon__4E88ABD4">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Misiones" EntitySet="Misiones" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

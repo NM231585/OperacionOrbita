@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="88ea1f372ca14484863d555bf2102251" Name="Diagram1">
+        <EntityTypeShape EntityType="OrbitaDBModel.Asignaciones" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrbitaDBModel.Misiones" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrbitaDBModel.Recursos" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrbitaDBModel.Usuarios" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="OrbitaDBModel.FK__Asignacio__Misio__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="OrbitaDBModel.FK__Asignacio__Recur__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="OrbitaDBModel.FK__Misiones__Respon__4E88ABD4" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
