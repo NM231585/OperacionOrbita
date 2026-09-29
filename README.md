@@ -66,5 +66,5 @@ La base de datos incluye los siguientes usuarios configurados con distintos nive
 
 ## Pruebas de la aplicación
 
-![Login](Pruebas/PruebaLogin.png)
-![Panel de control](Pruebas/PruebaPanelControl.png)
+![Login](pruebas/PruebaLogin.png)
+![Panel de control](pruebas/PruebaPanelControl.png)
