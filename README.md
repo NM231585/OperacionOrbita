@@ -64,3 +64,7 @@ La base de datos incluye los siguientes usuarios configurados con distintos nive
 ## Integrantes
 *   **Noyola Moz, Michael Douglas** Principal
 
+## Pruebas de la aplicación
+
+![Login](Pruebas/PruebaLogin.png)
+![Panel de control](Pruebas/PruebaPanelControl.png)
